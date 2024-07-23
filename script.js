@@ -18,7 +18,7 @@ let arr = [
 ];
 lang === 'ru' ? console.log(arr[1]) : console.log(arr[0])
 
-namePerson = 'Александр';
+let namePerson = 'Александр';
 namePerson == 'Артем' ? console.log('директор') : namePerson == 'Александр' ? console.log('преподаватель') : console.log('студент');
 
 
