@@ -20,11 +20,15 @@ function isPrime(num) {
   return true;
 }
 
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i][0] == '2' || arr[i][0] == '4') {
+//     console.log(arr[i]);
+//   }
+// }
+
 for (let i = 0; i < arr.length; i++) {
-  if (arr[i][0] == '2' || arr[i][0] == '4') {
+  if (arr[i].startsWith("2") || arr[i].startsWith("4")) {
     console.log(arr[i]);
-  } else {
-    continue
   }
 }
 
