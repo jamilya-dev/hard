@@ -1,35 +1,56 @@
-'use strict';
+'use strict'
 
-const arr = [
-  '4646687465242',
-  '73722028262527920',
-  '29585756',
-  '686764098756',
-  '4373820202827',
-  '285756454960698',
-  '57590329732672567'
-]
+function hiddenNumber(num, index) {
+  if (index > 0) {
+    let number = +prompt('Угадай число от 1 до 100');
+    index--;
+    return function conditions() {
+      if (number === null || number === 0) {
+        alert('Игра окончена');
+        return;
+      }
+      if (isNaN(number) || number === '') {
+        if (index > 0) {
+          number = +prompt('Введи число! Осталось попыток - ' + index);
+          index--;
+          conditions();
+          return;
+        } else {
+          alert('Игра окончена, у вас закончились попытки!');
+          return;
+        }
+      }
 
-function isPrime(num) {
-  if (num < 2) return false;
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-    if (num % i === 0) {
-      return false;
-    }
+      if (number > num) {
+        if (index > 0) {
+          number = +prompt('Загаданное число меньше! Осталось попыток - ' + index);
+          index--;
+          conditions();
+        } else {
+          alert('Игра окончена, у вас закончились попытки!');
+          return;
+        }
+      } else if (number < num) {
+        if (index > 0) {
+          number = +prompt('Загаданное число больше! Осталось попыток - ' + index);
+          index--;
+          conditions();
+        } else {
+          alert('Игра окончена, у вас закончились попытки!');
+          return;
+        }
+      } else if (number === num) {
+        let playAgain = confirm('Поздравляю, Вы угадали!!! Хотели бы сыграть еще?');
+        if (playAgain) {
+          let play = hiddenNumber(Math.floor(Math.random() * 100) + 1, 10);
+          play();
+        } else {
+          return;
+        }
+      }
+    };
   }
-  return true;
 }
 
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i][0] == '2' || arr[i][0] == '4') {
-    console.log(arr[i]);
-  } else {
-    continue
-  }
-}
-
-for (let i = 0; i <= 100; i++) {
-  if (isPrime(i)) {
-    console.log(i);
-  }
-}
+const func = hiddenNumber(Math.floor(Math.random() * 100) + 1, 10);
+func();
