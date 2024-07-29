@@ -10,8 +10,6 @@ const week = [
   'воскресенье'
 ]
 let date = new Date();
-console.log(date.getDay())
-date.getDay();
 
 for (let key in week) {
   if (week[key] === 'суббота' || week[key] === 'воскресенье') {
