@@ -60,7 +60,15 @@ const getAllServicePrices = function () {
     } else if (i === 1) {
       service2 = prompt('Какой дополнительный тип услуги нужен?', 'метрика');
     }
-    sum += +prompt('Сколько это будет стоить?');
+
+    do {
+      sum += prompt('Сколько это будет стоить?');
+      if (sum === null) {
+        continue;
+      } else if (isNumber(sum)) {
+        sum = parseFloat(sum);
+      }
+    } while (!isNumber(sum));
   }
   return sum
 }
