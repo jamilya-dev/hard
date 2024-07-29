@@ -3,7 +3,9 @@
 function hiddenNumber(num, index) {
   if (index > 0) {
     let number = +prompt('Угадай число от 1 до 100');
-    index--;
+    if (!isNaN(number) || !number === '') {
+      index--;
+    }
     return function conditions() {
       if (number === null || number === 0) {
         alert('Игра окончена');
@@ -12,7 +14,9 @@ function hiddenNumber(num, index) {
       if (isNaN(number) || number === '') {
         if (index > 0) {
           number = +prompt('Введи число! Осталось попыток - ' + index);
-          index--;
+          if (!isNaN(number) || !number === '') {
+            index--;
+          }
           conditions();
           return;
         } else {
@@ -24,7 +28,9 @@ function hiddenNumber(num, index) {
       if (number > num) {
         if (index > 0) {
           number = +prompt('Загаданное число меньше! Осталось попыток - ' + index);
-          index--;
+          if (!isNaN(number) || !number === '') {
+            index--;
+          }
           conditions();
         } else {
           alert('Игра окончена, у вас закончились попытки!');
@@ -33,7 +39,9 @@ function hiddenNumber(num, index) {
       } else if (number < num) {
         if (index > 0) {
           number = +prompt('Загаданное число больше! Осталось попыток - ' + index);
-          index--;
+          if (!isNaN(number) || !number === '') {
+            index--;
+          }
           conditions();
         } else {
           alert('Игра окончена, у вас закончились попытки!');
