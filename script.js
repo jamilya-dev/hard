@@ -11,14 +11,21 @@ const week = [
 ]
 let date = new Date();
 
+let div = document.createElement('div');
+div.className = "week";
+div.innerHTML = "";
+
 for (let key in week) {
   if (week[key] === 'суббота' || week[key] === 'воскресенье') {
-    document.write('<i>' + week[key] + '</i>' + '</br>')
+    div.innerHTML += '<i>' + week[key] + '</i>' + '</br>';
   } else if (key == (date.getDay() - 1)) {
-    document.write('<b>' + week[key] + '</b>' + '</br>')
+    div.innerHTML += '<b>' + week[key] + '</b>' + '</br>';
   } else {
-    document.write('<font>' + week[key] + '</font>' + '</br>')
+    div.innerHTML += '<font>' + week[key] + '</font>' + '</br>';
   }
+  document.body.append(div);
 }
+
+
 
 
